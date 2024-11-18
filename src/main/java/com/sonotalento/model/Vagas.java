@@ -26,7 +26,7 @@ public class Vagas implements Serializable {
 	private String nome;
 	
 	@ManyToOne
-	@JoinColumn(name = "idEmpresa")
+	@JoinColumn(name = "idempresa")
 	private Empresa empresa;
 	private String descricao;
 	

@@ -22,7 +22,7 @@ public class Candidato implements Serializable {
 	private Integer id;
 	
 	@OneToOne
-	@JoinColumn(name = "idUsuario")
+	@JoinColumn(name = "idusuario")
 	private Usuario usuario;
 	private String telefone;
 	private String descricao;

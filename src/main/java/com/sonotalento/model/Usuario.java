@@ -3,6 +3,7 @@ package com.sonotalento.model;
 import java.io.Serializable;
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,10 +24,12 @@ public class Usuario implements Serializable {
 	private String nome;
 	
 	@OneToOne
-	@JoinColumn(name = "idPerfil")
+	@JoinColumn(name = "idperfil")
 	private Perfil perfil;
 	private String email;
 	private String senha;
+	
+	@Column(name = "bolativo")
 	private Boolean bolAtivo;
 	
 	

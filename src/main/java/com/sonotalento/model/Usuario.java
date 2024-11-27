@@ -31,6 +31,8 @@ public class Usuario implements Serializable {
 	
 	@Column(name = "bolativo")
 	private Boolean bolAtivo;
+	private String telefone;
+	private String descricao;
 	
 	
 	public Integer getId() {
@@ -75,18 +77,32 @@ public class Usuario implements Serializable {
 		this.bolAtivo = bolAtivo;
 	}
 	
+	public String getTelefone() {
+		return telefone;
+	}
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+	
+	public String getDescricao() {
+		return descricao;
+	}
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+	
 	
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", nome=" + nome + ", perfil=" + perfil + ", email=" + email + ", senha=" + senha
-				+ ", bolAtivo=" + bolAtivo + "]";
+				+ ", bolAtivo=" + bolAtivo + ", telefone=" + telefone + ", descricao=" + descricao + "]";
 	}
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(bolAtivo, email, id, nome, perfil, senha);
+		return Objects.hash(bolAtivo, descricao, email, id, nome, perfil, senha, telefone);
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -96,8 +112,10 @@ public class Usuario implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Usuario other = (Usuario) obj;
-		return bolAtivo == other.bolAtivo && Objects.equals(email, other.email) && Objects.equals(id, other.id)
+		return Objects.equals(bolAtivo, other.bolAtivo) && Objects.equals(descricao, other.descricao)
+				&& Objects.equals(email, other.email) && Objects.equals(id, other.id)
 				&& Objects.equals(nome, other.nome) && Objects.equals(perfil, other.perfil)
-				&& Objects.equals(senha, other.senha);
+				&& Objects.equals(senha, other.senha) && Objects.equals(telefone, other.telefone);
 	}
+	
 }

@@ -20,6 +20,12 @@ public class UsuarioService {
 		return this.repository.save(usuarioSalvo);
 	}
 	
+	public void atualizarPropriedadeAtivo(Integer id, Boolean ativo) {
+		Usuario usuarioSalvo = buscarPeloCodigo(id);
+		usuarioSalvo.setBolAtivo(ativo);
+		repository.save(usuarioSalvo);
+	}
+	
 	private Usuario buscarPeloCodigo(Integer id) {
 		Usuario usuarioSalvo = repository.findById(id).orElseThrow(() -> new EmptyResultDataAccessException(1));;
 		return usuarioSalvo;

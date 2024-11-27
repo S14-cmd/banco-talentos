@@ -41,6 +41,12 @@ public class UsuarioResource {
 		Usuario usuarioSalvo = service.atualizar(id, usuario);
 		return ResponseEntity.ok(usuarioSalvo);
 	}
+	
+	@PutMapping("/{id}/ativo")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void atualizarPropriedadeAtivo(@PathVariable Integer id, @RequestBody Boolean ativo) {
+		service.atualizarPropriedadeAtivo(id, ativo);
+	}
 
 	@GetMapping("/{id}")
 	public ResponseEntity<Usuario> buscarPeloCodigo(@PathVariable Integer id) {
